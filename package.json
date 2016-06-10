@@ -1,0 +1,19 @@
+{
+  "name": "aziz-start-kit",
+  "version": "1.0.0",
+  "description": "nodejs express mongodb start-kit with user authentification passport",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gharbi mohamed aziz",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.0",
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.4.20",
+    "path": "^0.12.7"
+  }
+}
