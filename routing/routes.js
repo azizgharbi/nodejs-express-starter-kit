@@ -1,5 +1,5 @@
 var users=require('../controller/UserController');
 
-app.get('/',users.findUser);
-app.get('/pro',users.findUserPromise);
-app.get('/add',users.createUser);
+app.get('/',users.findAllUserPromise);
+app.post('/',users.CreateUserPromise);
+app.get('/:id',users.DeleteUserPromise);

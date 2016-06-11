@@ -1,7 +1,7 @@
 {
   "name": "aziz-start-kit",
   "version": "1.0.0",
-  "description": "nodejs express mongodb start-kit with user authentification passport",
+  "description": "nodejs express mongodb start-kit with promise Mongoose Exemple",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

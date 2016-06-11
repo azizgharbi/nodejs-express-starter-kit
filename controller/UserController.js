@@ -5,13 +5,12 @@ module.exports = {
 
 // find users mongoose
 findUser:function(req,res){
-User.find({},function(err,obj){
-res.send(obj);
-})
+   User.find({},function(err,obj){
+   res.send(obj);
+  })
 },
 
-// find user with promise
-
+// find user with promise and Update Exemple
 
  /*
 * == sort , limit and select ==
@@ -34,17 +33,46 @@ findUserPromise:function(req,res){
        console.log(err);
        });
 },
+// find All user
+findAllUserPromise:function(req,res){
 
+  User.find({}).exec()
+    .then(function(user){
+       res.render('home',{users:user})
+       })
+    .catch(function(err){
+       console.log(err);
+       });
+},
+// createUser
+CreateUserPromise:function(req,res){
 
-//create function
+  User.create(req.body)
+    .then(function(user){
+       res.redirect("/");
+       })
+    .catch(function(err){
+       console.log(err);
+       });
+},
+// deleteUser
+DeleteUserPromise:function(req,res){
+ var param=req.params.id;
+  User.findOneAndRemove(param)
+    .then(function(user){
+       res.redirect("/");
+       })
+    .catch(function(err){
+       console.log(err);
+       });
+},
+
+//create function Simple exemple
 createUser:function(req,res){
-var aziz = new User({name:"aziz"});
-aziz.save();
-res.redirect('/pro');
+var user = new User (req.body);
+user.save();
+res.redirect('/');
 }
-
-//for more details about promise
-//http://eddywashere.com/blog/switching-out-callbacks-with-promises-in-mongoose/
 
 
 };
