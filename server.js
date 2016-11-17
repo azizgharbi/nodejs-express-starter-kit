@@ -5,7 +5,8 @@ app=express();
 mongoose=require('mongoose');
 mongoose.Promise=require('bluebird');
 // packge imported
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 var exphbs  = require('express-handlebars');
 
 
@@ -16,9 +17,10 @@ var exphbs  = require('express-handlebars');
 // assets in the public folder
 app.use('/static', express.static('public'));
 // connexion too database
-mongoose.connect('mongodb://localhost/start-kit');
+mongoose.connect('mongodb://localhost:27017/start');
 //body-parser
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(methodOverride('_method'))
 // set engine handlebars
 app.engine('handlebars', exphbs({defaultLayout: 'default'}));
 app.set('view engine', 'handlebars');
@@ -31,8 +33,6 @@ var server = app.listen(3000, function () {
   var port = server.address().port
   console.log("Hi ! the server is running on port "+port);
 })
-
-
 /* promise mongoose
 mongoosePromise=promise.promisifyAll(require('mongoose'));
 */

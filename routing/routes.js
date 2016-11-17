@@ -1,5 +1,6 @@
-var users=require('../controller/UserController');
+var users = require('../controller/UserController');
 
-app.get('/',users.findAllUserPromise);
+app.get('/',users.indexPromise);
 app.post('/',users.CreateUserPromise);
-app.get('/:id',users.DeleteUserPromise);
+app.delete('/pow/:id',users.destroyPromise);
+app.get('/about',users.about);

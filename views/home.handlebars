@@ -20,7 +20,11 @@
         <td>{{_id}}</td>
         <td>{{name}}</td>
         <td>{{email}}</td>
-        <td><a href="/{{_id}}">Delete</a></td>
+        <td>
+          <form method="post" action="/pow/{{_id}}?_method=DELETE" class="form-inline">
+             <button type="submit" class="btn btn-default">Delete</button>
+        </form>
+        </td>
 
       </tr>
       {{/each}}
@@ -36,7 +40,7 @@
     <input type="text" class="form-control" id="name" placeholder="Name" name="name">
   </div>
   <div class="form-group">
-    <label for="email">Password</label>
+    <label for="email">Email</label>
     <input type="email" class="form-control" id="email" placeholder="E-mail" name="email">
   </div>
   <button type="submit" class="btn btn-default">Add User</button>

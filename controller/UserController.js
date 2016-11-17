@@ -34,7 +34,7 @@ findUserPromise:function(req,res){
        });
 },
 // find All user
-findAllUserPromise:function(req,res){
+indexPromise:function(req,res){
 
   User.find({}).exec()
     .then(function(user){
@@ -44,9 +44,12 @@ findAllUserPromise:function(req,res){
        console.log(err);
        });
 },
+// about
+about:function(req,res){
+  res.render('about');
+},
 // createUser
 CreateUserPromise:function(req,res){
-
   User.create(req.body)
     .then(function(user){
        res.redirect("/");
@@ -56,17 +59,13 @@ CreateUserPromise:function(req,res){
        });
 },
 // deleteUser
-DeleteUserPromise:function(req,res){
- var param=req.params.id;
-  User.findOneAndRemove(param)
-    .then(function(user){
-       res.redirect("/");
-       })
-    .catch(function(err){
-       console.log(err);
-       });
+destroy:function(req,res){
+  var query = {"_id": req.params.id};
+  User.findOneAndRemove(query, function(err, user){
+    console.log(user)
+    res.redirect('/');
+  });
 },
-
 //create function Simple exemple
 createUser:function(req,res){
 var user = new User (req.body);
